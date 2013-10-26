@@ -1,0 +1,46 @@
+column-count = 5
+gap = 3px
+
+.b-news-tile
+  -webkit-column-count column-count
+  -webkit-column-gap gap
+  column-count column-count
+  column-gap gap
+  max-width 80%
+  margin 1% auto
+
+
+  .b-news-tile__loader
+    display none
+    position fixed
+    margin-left -34px
+    margin-top -40px
+    left: 50%
+    top: 50%
+
+  &.b-news-tile_loading
+    .b-news-tile__loader
+      display block
+
+  .b-news-tile__item
+    display inline-block
+    width 200px
+    overflow: hidden
+
+    .b-news-tile__item__loader
+
+    .b-news-tile__item__image
+      width 200px
+      background grey
+
+    .b-news-tile__item__title
+      display inline-block
+      position relative
+
+      overflow hidden
+      top -60px
+      height: 50px
+      padding 5px
+
+      text-align center
+      color #fff

@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+
+  "name": "Newstab",
+  "description": "This extension show the breaking news on newtab page.",
+  "content_security_policy": "script-src 'self' chrome-extension-resource:; object-src 'self'",
+
+  "version": "0.0.0",
+
+  "permissions": [
+    "http://www.adme.ru/",
+    "http://news.sportbox.ru/"
+  ],
+  "chrome_url_overrides" : {
+    "newtab": "newtab.html"
+  }
+}
