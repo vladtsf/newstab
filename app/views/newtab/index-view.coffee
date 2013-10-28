@@ -13,19 +13,22 @@ module.exports = class NewtabIndexView extends CollectionView
     # don't fetch 'till the request will be finished
     @noFetch = yes
 
-    # for offset
-    @page = 0
-
     super
 
   onScroll: ->
+    newOffset = @collection.offset + 30
+
+    return if newOffset >= @collection.total
+
     # @todo: each batch of news should be in the separate container
     if not @noFetch and document.height - $(document).scrollTop() - document.body.clientHeight <= 0
       @noFetch = yes
+
       @collection.fetch
         remove: no
         data:
-          offset: ++@page * 30
+          offset: newOffset
+          limit: @collection.limit
 
   onSync: ->
     @noFetch = no

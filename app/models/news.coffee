@@ -6,6 +6,13 @@ module.exports = class News extends Collection
 
   url: "http://localhost:3000/feed.json"
 
+  parse: ( res ) ->
+    @offset = res.offset
+    @limit = res.limit
+    @total = res.total
+
+    res.items
+
   # fetch: ->
   #   def = new $.Deferred()
 
