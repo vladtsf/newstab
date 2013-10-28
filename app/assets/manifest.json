@@ -8,8 +8,7 @@
   "version": "0.0.0",
 
   "permissions": [
-    "http://www.adme.ru/",
-    "http://news.sportbox.ru/"
+    "http://localhost:3000/"
   ],
   "chrome_url_overrides" : {
     "newtab": "newtab.html"

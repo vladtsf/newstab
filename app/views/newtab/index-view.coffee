@@ -10,5 +10,14 @@ module.exports = class NewtabIndexView extends CollectionView
   onSync: ->
     @$el.removeClass "b-news-tile_loading"
 
+  render: ->
+    super
+
+    # @$el.isotope
+    #   itemSelector : '.b-news-tile__item',
+    #   layoutMode : 'fitRows'
+
+    @
+
   listen:
     "sync collection": "onSync"

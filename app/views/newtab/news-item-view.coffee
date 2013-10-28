@@ -6,6 +6,8 @@ module.exports = class NewsItemView extends View
   template: require "./templates/news-item"
 
   render: ->
-    @$el.css height: @model.get( "image" )?.height
+    @$el.css
+      width: @model.get( "image" )?.width
+      height: @model.get( "image" )?.height
 
     super

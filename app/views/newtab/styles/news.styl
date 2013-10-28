@@ -1,4 +1,4 @@
-column-count = 5
+column-count = 3
 gap = 3px
 
 .b-news-tile
@@ -7,6 +7,7 @@ gap = 3px
   column-count column-count
   column-gap gap
   max-width 80%
+  height 100% !important
   margin 1% auto
 
 
@@ -23,23 +24,27 @@ gap = 3px
       display block
 
   .b-news-tile__item
+    background-color: rgba(0, 0, 0, 0.7);
     display inline-block
-    width 200px
-    overflow: hidden
+    width 400px
+    overflow hidden
+    text-align center
 
     .b-news-tile__item__loader
 
     .b-news-tile__item__image
-      width 200px
+      // max-width 400px
       background grey
 
     .b-news-tile__item__title
+      background-color: rgba(0, 0, 0, 0.7);
+      width: 100%
       display inline-block
       position relative
 
       overflow hidden
       top -60px
-      height: 50px
+      height: 54px
       padding 5px
 
       text-align center
