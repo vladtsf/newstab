@@ -1,12 +1,13 @@
 column-count = 3
-gap = 3px
+gap = 0
 
 .b-news-tile
   -webkit-column-count column-count
   -webkit-column-gap gap
   column-count column-count
   column-gap gap
-  max-width 80%
+  max-width 100%
+  text-align center
   height 100% !important
   margin 1% auto
 
@@ -24,17 +25,13 @@ gap = 3px
       display block
 
   .b-news-tile__item
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color rgba(0, 0, 0, 0.7)
+    max-width 400px
     display inline-block
-    width 400px
     overflow hidden
     text-align center
 
-    .b-news-tile__item__loader
-
-    .b-news-tile__item__image
-      // max-width 400px
-      background grey
+    // .b-news-tile__item__image
 
     .b-news-tile__item__title
       background-color: rgba(0, 0, 0, 0.7);

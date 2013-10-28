@@ -15,7 +15,6 @@
   "overrides": {
     "isotope": {
       "main": [
-        "jquery.isotope.js",
         "css/style.css"
       ]
     },

@@ -7,17 +7,29 @@ module.exports = class NewtabIndexView extends CollectionView
   itemView: NewsItemView
   template: require "./templates/index"
 
-  onSync: ->
-    @$el.removeClass "b-news-tile_loading"
+  initialize: ->
+    $(window).on "scroll.#{@cid}", @onScroll.bind @
 
-  render: ->
+    # don't fetch 'till the request will be finished
+    @noFetch = yes
+
+    # for offset
+    @page = 0
+
     super
 
-    # @$el.isotope
-    #   itemSelector : '.b-news-tile__item',
-    #   layoutMode : 'fitRows'
+  onScroll: ->
+    # @todo: each batch of news should be in the separate container
+    if not @noFetch and document.height - $(document).scrollTop() - document.body.clientHeight <= 0
+      @noFetch = yes
+      @collection.fetch
+        remove: no
+        data:
+          offset: ++@page * 30
 
-    @
+  onSync: ->
+    @noFetch = no
+    @$el.removeClass "b-news-tile_loading"
 
   listen:
     "sync collection": "onSync"
