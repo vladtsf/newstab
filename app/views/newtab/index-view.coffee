@@ -6,6 +6,7 @@ module.exports = class NewtabIndexView extends CollectionView
   className: "b-news-tile b-news-tile_loading"
   itemView: NewsItemView
   template: require "./templates/index"
+  animationDuration: 0 # disable animation
 
   initialize: ->
     $(window).on "scroll.#{@cid}", @onScroll.bind @
@@ -15,12 +16,21 @@ module.exports = class NewtabIndexView extends CollectionView
 
     super
 
+  render: ->
+    super
+
+    @$el.isotope
+      itemSelector : '.b-news-tile__item',
+      layoutMode : 'fitRows'
+
+    @
+
   onScroll: ->
     newOffset = @collection.offset + 30
 
+    # don't do nothing in case of timeline end
     return if newOffset >= @collection.total
 
-    # @todo: each batch of news should be in the separate container
     if not @noFetch and document.height - $(document).scrollTop() - document.body.clientHeight <= 0
       @noFetch = yes
 
@@ -31,6 +41,7 @@ module.exports = class NewtabIndexView extends CollectionView
           limit: @collection.limit
 
   onSync: ->
+    @$el.isotope "reLayout"
     @noFetch = no
     @$el.removeClass "b-news-tile_loading"
 

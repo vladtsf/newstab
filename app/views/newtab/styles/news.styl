@@ -1,15 +1,11 @@
-column-count = 3
-gap = 0
+body
+  padding 0
 
 .b-news-tile
-  -webkit-column-count column-count
-  -webkit-column-gap gap
-  column-count column-count
-  column-gap gap
-  max-width 100%
-  text-align center
+  text-align left
   height 100% !important
-  margin 1% auto
+  width 100%
+  line-height 1em
 
 
   .b-news-tile__loader
@@ -26,23 +22,37 @@ gap = 0
 
   .b-news-tile__item
     background-color rgba(0, 0, 0, 0.7)
-    max-width 400px
+    height 250px
+    max-width 25%
     display inline-block
     overflow hidden
-    text-align center
+    text-align left
 
-    // .b-news-tile__item__image
+
+    &:hover
+      .b-news-tile__item__image
+        opacity 0.3
+
+    &.b-news-tile__item_loading
+      .b-news-tile__item__image
+        opacity 0
+
+    .b-news-tile__item__image
+      -webkit-transition opacity 500ms
+      transition opacity 500ms
+      height 250px
 
     .b-news-tile__item__title
-      background-color: rgba(0, 0, 0, 0.7);
-      width: 100%
-      display inline-block
+      line-height normal
+      background-color rgba(0, 0, 0, 0.7)
+      display block
       position relative
+      font-size 14px
 
       overflow hidden
-      top -60px
-      height: 54px
-      padding 5px
+      height 73px
+      top -75px
+      padding 3px
 
       text-align center
       color #fff
