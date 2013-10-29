@@ -2,13 +2,16 @@ View = require "views/base/view"
 
 module.exports = class NewsItemView extends View
   autoRender: yes
+  tagName: "a"
   className: "b-news-tile__item b-news-tile__item_loading"
   template: require "./templates/news-item"
 
   render: ->
     @$el.css
-      width: @model.get( "image" )?.width
-      # height: @model.get( "image" )?.height
+      height: @model.get( "image" )?.height
+
+    @$el.attr
+      href: @model.get "href"
 
     super
 
@@ -16,9 +19,9 @@ module.exports = class NewsItemView extends View
 
     @
 
-  onLoad: ->
+  onLoad: ( e ) ->
     @$el.removeClass "b-news-tile__item_loading"
-
+    $(e.currentTarget).addClass "b-news-tile__item__image_loaded"
 
   events:
     "load .b-news-tile__item__image": "onLoad"

@@ -10,7 +10,8 @@
     "jquery": "~2.0.2",
     "normalize-css": "~2.1.2",
     "h5bp-helpers": "~0.1.0",
-    "isotope": "~1.5.25"
+    "isotope": "~1.5.25",
+    "jquery-masonry": "*"
   },
   "overrides": {
     "isotope": {

@@ -7,9 +7,12 @@ module.exports = class NewtabIndexView extends CollectionView
   itemView: NewsItemView
   template: require "./templates/index"
   animationDuration: 0 # disable animation
+  options:
+    imageWidth: 256
 
   initialize: ->
     $(window).on "scroll.#{@cid}", @onScroll.bind @
+    $(window).on "resize.#{@cid}", @updateWidth.bind @
 
     # don't fetch 'till the request will be finished
     @noFetch = yes
@@ -18,12 +21,12 @@ module.exports = class NewtabIndexView extends CollectionView
 
   render: ->
     super
-
-    @$el.isotope
-      itemSelector : '.b-news-tile__item',
-      layoutMode : 'fitRows'
-
+    @updateWidth()
+    @masonry()
     @
+
+  updateWidth: ->
+    @$el.css "max-width", ~~( document.body.clientWidth / @options.imageWidth ) * @options.imageWidth
 
   onScroll: ->
     newOffset = @collection.offset + 30
@@ -40,8 +43,20 @@ module.exports = class NewtabIndexView extends CollectionView
           offset: newOffset
           limit: @collection.limit
 
+  masonry: ->
+    @$el.masonry( "destroy" ) if @masonryfied
+
+    @$el.masonry
+      columnWidth: 256,
+      itemSelector: '.b-news-tile__item'
+
+    @masonryfied = yes
+
+    @$el.masonry "bindResize"
+
   onSync: ->
-    @$el.isotope "reLayout"
+    @$("img").load @masonry.bind @
+
     @noFetch = no
     @$el.removeClass "b-news-tile_loading"
 
