@@ -4,7 +4,7 @@ NewsItem = require './news-item'
 module.exports = class News extends Collection
   model: NewsItem
 
-  url: "http://localhost:3000/feed.json"
+  url: "http://localhost:3000/api/feed/"
 
   parse: ( res ) ->
     @offset = res.offset
