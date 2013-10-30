@@ -44,15 +44,15 @@ module.exports = class NewtabIndexView extends CollectionView
           limit: @collection.limit
 
   masonry: ->
-    @$el.masonry( "destroy" ) if @masonryfied
+    if @$el.data "masonry"
+      @$el.removeData( "masonry" )
+    else
+      setTimeout => @$el.masonry "bindResize"
 
     @$el.masonry
       columnWidth: 256,
       itemSelector: '.b-news-tile__item'
 
-    @masonryfied = yes
-
-    @$el.masonry "bindResize"
 
   onSync: ->
     @$("img").load @masonry.bind @
