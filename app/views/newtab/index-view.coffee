@@ -26,7 +26,7 @@ module.exports = class NewtabIndexView extends CollectionView
     @
 
   updateWidth: ->
-    @$el.css "max-width", ~~( document.body.clientWidth / @options.imageWidth ) * @options.imageWidth
+    @$el.css "max-width", ( ~~( document.body.clientWidth / @options.imageWidth ) * @options.imageWidth ) + 1
 
   onScroll: ->
     newOffset = @collection.offset + 30
