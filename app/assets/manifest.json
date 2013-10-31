@@ -2,10 +2,10 @@
   "manifest_version": 2,
 
   "name": "Newstab",
-  "description": "This extension show the breaking news on newtab page.",
+  "description": "This extension shows the breaking news on newtab page.",
   "content_security_policy": "script-src 'self' chrome-extension-resource:; object-src 'self'",
 
-  "version": "0.0.3",
+  "version": "0.0.4",
 
   "permissions": [
     "http://thenewstab.ru/"
