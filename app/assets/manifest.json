@@ -5,7 +5,7 @@
   "description": "This extension shows the breaking news on newtab page.",
   "content_security_policy": "script-src 'self' chrome-extension-resource:; object-src 'self'",
 
-  "version": "0.0.6",
+  "version": "0.0.7",
 
   "permissions": [
     "http://thenewstab.ru/"
