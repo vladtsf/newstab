@@ -34,7 +34,7 @@ module.exports = class NewtabIndexView extends CollectionView
     # don't do nothing in case of timeline end
     return if newOffset >= @collection.total
 
-    if not @noFetch and document.height - $(document).scrollTop() - document.body.clientHeight <= 0
+    if not @noFetch and $(document).height() - $(document).scrollTop() - document.body.clientHeight <= 0
       @noFetch = yes
 
       @collection.fetch

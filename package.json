@@ -2,7 +2,7 @@
   "author": "vtsvang@gmail.com",
   "name": "newstab",
   "description": "This is a Chrome extension which shows the breaking news on newtab page",
-  "version": "0.0.5",
+  "version": "0.0.8",
   "homepage": "",
   "repository": {
     "type": "git",
